@@ -1,1 +1,238 @@
+/* Paleta de colores inspirada en girasoles:
+   - Amarillo brillante (pétalos): #FFD700
+   - Naranja cálido (centro): #FFA500
+   - Verde claro (hojas): #9ACD32
+   - Marrón suave (semillas): #8B4513 (usado para texto principal y elementos oscuros)
+   - Crema/Blanco roto (fondo claro): #FFFACD
+*/
 
+:root {
+    --color-background: #FFFACD; /* Crema/Blanco roto para el fondo */
+    --color-primary-yellow: #FFD700; /* Amarillo brillante para elementos principales */
+    --color-secondary-orange: #FFA500; /* Naranja cálido para detalles */
+    --color-green: #9ACD32; /* Verde claro para indicadores */
+    --color-text-dark: #8B4513; /* Marrón suave para texto */
+    --color-text-light: #FFFFFF; /* Blanco para texto sobre colores oscuros */
+    --color-approved: #9ACD32; /* Verde para ramos aprobados */
+    --color-approved-text: #FFFFFF; /* Blanco para texto aprobado */
+    --color-border: #FFCC00; /* Borde más oscuro para contraste */
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita el scroll horizontal no deseado */
+}
+
+/* Estilos del encabezado */
+header {
+    background-color: var(--color-primary-yellow);
+    color: var(--color-text-dark);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.8rem;
+    color: var(--color-text-dark);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.motivational-message {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-secondary-orange);
+    border-radius: 15px;
+    display: inline-block;
+}
+
+/* Contenedor principal de la malla */
+.curriculum-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los semestres se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    gap: 25px; /* Espacio entre las columnas de semestres */
+    padding: 25px;
+    max-width: 1400px;
+    margin: 25px auto;
+}
+
+/* Estilos para cada sección de semestre */
+.semester {
+    background-color: var(--color-text-light);
+    border: 2px solid var(--color-border);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Permite que los semestres crezcan y se encojan */
+    min-width: 280px; /* Ancho mínimo para cada columna */
+    max-width: 350px; /* Ancho máximo para cada columna */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.semester:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.semester h2 {
+    color: var(--color-secondary-orange);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    border-bottom: 3px solid var(--color-primary-yellow);
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Lista de cursos dentro de cada semestre */
+.course-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los cursos */
+}
+
+/* Estilos para cada curso individual */
+.course {
+    background-color: var(--color-primary-yellow);
+    color: var(--color-text-dark);
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px; /* Altura mínima para cada curso */
+}
+
+.course:hover {
+    background-color: var(--color-secondary-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Estilos para ramos aprobados */
+.course.approved {
+    background-color: var(--color-approved);
+    color: var(--color-approved-text);
+    text-decoration: line-through;
+    opacity: 0.9;
+    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
+}
+
+.course.approved:hover {
+    background-color: var(--color-green);
+    transform: none; /* No animar al pasar el ratón si ya está aprobado */
+    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.25);
+}
+
+/* Estilos para el promedio del ramo */
+.course .grade {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--color-approved-text);
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* Pie de página */
+footer {
+    background-color: var(--color-primary-yellow);
+    color: var(--color-text-dark);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    margin-top: 50px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
+}
+
+footer .motivational-message {
+    background-color: var(--color-secondary-orange);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+    .curriculum-grid {
+        justify-content: space-around; /* Distribuir semestres cuando hay menos espacio */
+    }
+    .semester {
+        max-width: 45%; /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+    .motivational-message {
+        font-size: 1.1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .semester {
+        min-width: 90%; /* Una columna en pantallas pequeñas */
+        max-width: 90%;
+        margin-bottom: 20px; /* Espacio entre semestres */
+    }
+    .curriculum-grid {
+        padding: 15px;
+        gap: 20px;
+    }
+    .semester h2 {
+        font-size: 1.8rem;
+        padding-bottom: 8px;
+    }
+    .course {
+        padding: 12px 15px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    .motivational-message {
+        font-size: 1rem;
+        padding: 0.3rem 0.6rem;
+    }
+    .semester {
+        padding: 18px;
+    }
+    .semester h2 {
+        font-size: 1.6rem;
+    }
+    .course {
+        font-size: 0.9em;
+        min-height: 50px;
+    }
+    .course .grade {
+        font-size: 0.7em;
+        top: 3px;
+        right: 5px;
+        padding: 2px 4px;
+    }
+}
