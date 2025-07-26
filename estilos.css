@@ -1,21 +1,22 @@
-/* Paleta de colores inspirada en girasoles:
-   - Amarillo brillante (pétalos): #FFD700
-   - Naranja cálido (centro): #FFA500
-   - Verde claro (hojas): #9ACD32
-   - Marrón suave (semillas): #8B4513 (usado para texto principal y elementos oscuros)
-   - Crema/Blanco roto (fondo claro): #FFFACD
+/* Paleta de colores inspirada en rosas suaves:
+   - Rosa pálido (fondo): #FFF0F5 (Lavender Blush)
+   - Rosa claro (primario): #FFC0CB (Pink)
+   - Rosa medio (secundario/detalles): #FFB6C1 (Light Pink)
+   - Gris rosado suave (texto principal): #696969 (Dim Gray)
+   - Blanco (texto sobre rosas): #FFFFFF
+   - Verde suave (aprobado): #98FB98 (Pale Green)
+   - Borde rosa más oscuro: #FF69B4 (Hot Pink)
 */
 
 :root {
-    --color-background: #FFFACD; /* Crema/Blanco roto para el fondo */
-    --color-primary-yellow: #FFD700; /* Amarillo brillante para elementos principales */
-    --color-secondary-orange: #FFA500; /* Naranja cálido para detalles */
-    --color-green: #9ACD32; /* Verde claro para indicadores */
-    --color-text-dark: #8B4513; /* Marrón suave para texto */
+    --color-background: #FFF0F5; /* Rosa pálido para el fondo */
+    --color-primary-rose: #FFC0CB; /* Rosa claro para elementos principales */
+    --color-secondary-rose: #FFB6C1; /* Rosa medio para detalles */
+    --color-text-dark: #696969; /* Gris rosado suave para texto */
     --color-text-light: #FFFFFF; /* Blanco para texto sobre colores oscuros */
-    --color-approved: #9ACD32; /* Verde para ramos aprobados */
+    --color-approved: #98FB98; /* Verde suave para ramos aprobados */
     --color-approved-text: #FFFFFF; /* Blanco para texto aprobado */
-    --color-border: #FFCC00; /* Borde más oscuro para contraste */
+    --color-border: #FF69B4; /* Borde rosa más oscuro para contraste */
 }
 
 /* Estilos generales del cuerpo */
@@ -26,12 +27,12 @@ body {
     background-color: var(--color-background);
     color: var(--color-text-dark);
     line-height: 1.6;
-    overflow-x: hidden; /* Evita el scroll horizontal no deseado */
+    overflow-x: hidden;
 }
 
 /* Estilos del encabezado */
 header {
-    background-color: var(--color-primary-yellow);
+    background-color: var(--color-primary-rose);
     color: var(--color-text-dark);
     padding: 2rem 1rem;
     text-align: center;
@@ -51,7 +52,7 @@ header h1 {
     color: var(--color-text-dark);
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: var(--color-secondary-orange);
+    background-color: var(--color-secondary-rose);
     border-radius: 15px;
     display: inline-block;
 }
@@ -59,9 +60,9 @@ header h1 {
 /* Contenedor principal de la malla */
 .curriculum-grid {
     display: flex;
-    flex-wrap: wrap; /* Permite que los semestres se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 25px; /* Espacio entre las columnas de semestres */
+    gap: 25px;
     padding: 25px;
     max-width: 1400px;
     margin: 25px auto;
@@ -74,9 +75,9 @@ header h1 {
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    flex: 1; /* Permite que los semestres crezcan y se encojan */
-    min-width: 280px; /* Ancho mínimo para cada columna */
-    max-width: 350px; /* Ancho máximo para cada columna */
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,11 +90,11 @@ header h1 {
 }
 
 .semester h2 {
-    color: var(--color-secondary-orange);
+    color: var(--color-secondary-rose);
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 2rem;
-    border-bottom: 3px solid var(--color-primary-yellow);
+    border-bottom: 3px solid var(--color-primary-rose);
     padding-bottom: 10px;
     text-align: center;
     width: 100%;
@@ -104,13 +105,13 @@ header h1 {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espacio entre los cursos */
+    gap: 15px;
 }
 
 /* Estilos para cada curso individual */
 .course {
-    background-color: var(--color-primary-yellow);
-    color: var(--color-text-dark);
+    background-color: var(--color-primary-rose);
+    color: var(--color-text-light);
     padding: 15px 20px;
     border-radius: 10px;
     cursor: pointer;
@@ -123,11 +124,11 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 60px; /* Altura mínima para cada curso */
+    min-height: 60px;
 }
 
 .course:hover {
-    background-color: var(--color-secondary-orange);
+    background-color: var(--color-secondary-rose);
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
@@ -142,8 +143,8 @@ header h1 {
 }
 
 .course.approved:hover {
-    background-color: var(--color-green);
-    transform: none; /* No animar al pasar el ratón si ya está aprobado */
+    background-color: var(--color-approved); /* Mantiene el color al pasar el ratón */
+    transform: none;
     box-shadow: 0 4px 8px rgba(0, 128, 0, 0.25);
 }
 
@@ -162,7 +163,7 @@ header h1 {
 
 /* Pie de página */
 footer {
-    background-color: var(--color-primary-yellow);
+    background-color: var(--color-primary-rose);
     color: var(--color-text-dark);
     padding: 1.5rem 1rem;
     text-align: center;
@@ -171,16 +172,16 @@ footer {
 }
 
 footer .motivational-message {
-    background-color: var(--color-secondary-orange);
+    background-color: var(--color-secondary-rose);
 }
 
 /* Media Queries para Responsividad */
 @media (max-width: 1200px) {
     .curriculum-grid {
-        justify-content: space-around; /* Distribuir semestres cuando hay menos espacio */
+        justify-content: space-around;
     }
     .semester {
-        max-width: 45%; /* Dos columnas en pantallas medianas */
+        max-width: 45%;
     }
 }
 
@@ -193,9 +194,9 @@ footer .motivational-message {
         padding: 0.4rem 0.8rem;
     }
     .semester {
-        min-width: 90%; /* Una columna en pantallas pequeñas */
+        min-width: 90%;
         max-width: 90%;
-        margin-bottom: 20px; /* Espacio entre semestres */
+        margin-bottom: 20px;
     }
     .curriculum-grid {
         padding: 15px;
